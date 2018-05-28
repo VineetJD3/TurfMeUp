@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const log4js = require('log4js');
 const mongoose = require('mongoose');
 const path = require('path');
-
+const config = require('../config/index')
 
 const app = express();
 
@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 // connect to database
-// mongoose.connect(config.mongodb);
+mongoose.connect(config.mongoDbConfig);
 
 // configure to use all types in different files.
 log4js.configure({
